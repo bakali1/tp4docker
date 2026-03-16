@@ -18,8 +18,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker image
-        run: docker compose up --build -d -t ${{ secrets.DOCKER_USERNAME }}/f:v1 .
+      - name: Build images with Docker Compose
+        run: docker compose build
 
-      - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/flask-api-task:v1
+      - name: Push backend image
+        run: docker compose push bakali1/fullstack:latest
